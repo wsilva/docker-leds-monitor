@@ -13,7 +13,9 @@ RUN apt-get update && \
     scons && \
     cd python && \
     python ./setup.py install && \
-    rm -rf ./build
+    rm -rf ./build && \
+    easy_install pip && \
+    pip install docker
 COPY docker-leds.py /
 CMD [ "python", "/docker-leds.py" ]
 
